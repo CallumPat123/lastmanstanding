@@ -1,0 +1,34 @@
+**/.env
+
+**/node_modules
+
+.env
+
+.DS_Store
+**/.DS_Store
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Directory for built sources
+dist/
+
+# Production build files
+/build
+
+# macOS directory attributes
+.DS_Store
+
+# Windows image file caches
+Thumbs.db
+
+# VSCode
+.vscode/

@@ -1,0 +1,41 @@
+version: "3.8"
+services:
+  backend:
+    build: ./backend # Assuming this is where your Dockerfile is
+    volumes:
+      - ./backend:/usr/src/app # Maps your local backend directory to /usr/src/app in the container
+      - /usr/src/app/node_modules # Exclude node_modules from the volume to use the container's version
+    ports:
+      - "3001:3001"
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - DB_HOST=postgres
+      - NODE_ENV=development
+    depends_on:
+      - postgres
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+
+  postgres:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
