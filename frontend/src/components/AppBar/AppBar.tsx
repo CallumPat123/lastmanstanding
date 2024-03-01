@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import AppBarItems from "./AppBarItems";
 
 import { Stack } from "@mui/material";
 import MuiAppBar from "@mui/material/AppBar";
@@ -62,7 +63,7 @@ const AppBarComponent = ({ title }: { title?: string }) => {
           )}
 
           <Stack direction="row" spacing={2} alignItems="center">
-            {/* <AppBarItems /> */}
+            <AppBarItems />
           </Stack>
         </Toolbar>
       </AppBar>

@@ -15,7 +15,7 @@ const AppRoutes = () => {
       <Box
         className="home"
         sx={{ backgroundColor: "background.default" }}
-        style={{ height: "100vh", overflowY: "scroll" }}
+        style={{ height: "100vh" }}
       >
         <Router>
           <Routes>
